@@ -100,7 +100,7 @@ MODIFY COLUMN payment_status ENUM('pending', 'completed', 'failed', 'cancelled')
 -- insert into tables
 -- Movies Table Inserts
 INSERT INTO Movies (name, genre, duration_minutes, release_date, rating, language, director) VALUES
--- Previous Tamil Movies
+
 ('Vidaamuyarchi', 'Drama', 162, '2025-02-7', 4, 'Tamil', 'Magizh thirumeni'),
 ('Kanguva', 'Action', 165, '2024-04-12', 5, 'Tamil', 'Siva'),
 ('Captain Miller', 'Period', 157, '2024-01-12', 4, 'Tamil', 'Arun Matheswaran'),
@@ -114,13 +114,13 @@ INSERT INTO Movies (name, genre, duration_minutes, release_date, rating, languag
 
 select * from Movies ;
 
--- Theaters Table Inserts (Same theaters, added screen types)
+-- Theaters Table Inserts 
 INSERT INTO Theaters (name, city) VALUES
 ('PVR', 'velachery'),
 ('AGS Cinemas', 'whitefield'),
 ('Rohini Silver Screens', 'koyambedu');
  select * from Theaters;
--- Updated Screens Table with smaller capacity
+
 INSERT INTO Screens (theater_id, screen_number, total_seats) VALUES
 (1, 1, 25), -- PVR Screen 1 (Premium Screen)
 (1, 2, 25), -- PVR Screen 2 (Standard Screen)
@@ -130,7 +130,7 @@ INSERT INTO Screens (theater_id, screen_number, total_seats) VALUES
 (2, 2, 25); -- AGS Screen 1 (IMAX Screen)
  select * from screens;
 
--- Extended Seats Table with various types and special pricing
+-- Seats Table with various types and special pricing
 INSERT INTO Seats (screen_id, seat_number, seat_type, price) VALUES
 -- PVR Screen 1 (Premium Screen) - Higher pricing
 (1, 1, 'Standard', 200.00),
@@ -157,7 +157,7 @@ INSERT INTO Seats (screen_id, seat_number, seat_type, price) VALUES
 (5, 9, 'Standard', 600.00);
 
 
--- Extended Users Table with diverse scenarios
+-- Users Table insert
 INSERT INTO Users (name, email, password_hash, phone, role) VALUES
 ('Arjun ', 'arjun@email.com', 'hashed_password_1', '9876543210', 'customer'),
 ('Piya', 'piya@email.com', 'hashed_password_2', '9876543211', 'customer'),
@@ -171,7 +171,7 @@ INSERT INTO Users (name, email, password_hash, phone, role) VALUES
 
 select * from users;
 
--- Extended Showtimes with special shows
+--  Showtimes insert
 INSERT INTO Showtimes (movie_id, screen_id, start_time, end_time) VALUES
 -- Regular shows
 (1, 1, '2024-02-06 10:00:00', '2024-02-06 12:42:00'),
@@ -179,7 +179,7 @@ INSERT INTO Showtimes (movie_id, screen_id, start_time, end_time) VALUES
 -- Kannada movies in Bangalore
 (5, 3, '2024-02-06 14:00:00', '2024-02-06 16:48:00'),
 (6, 3, '2024-02-06 18:00:00', '2024-02-06 20:30:00'),
--- Multilingual movies
+
 (7, 1, '2024-02-06 15:00:00', '2024-02-06 18:02:00'),
 (8, 2, '2024-02-06 16:00:00', '2024-02-06 18:55:00');
 
@@ -191,11 +191,11 @@ INSERT INTO Bookings (user_id, showtime_id, seat_id, booking_date) VALUES
 -- Premium/VIP bookings for Kannada movies
 (4, 3, 13, '2024-02-05 17:00:00'),
 (5, 4, 14, '2024-02-05 17:30:00'),
--- Multilingual movie bookings
+
 (2, 5, 5, '2024-02-05 18:00:00'),
 (3, 6, 10, '2024-02-05 18:30:00');
 select * from bookings;
--- Extended Payments with various statuses and scenarios
+
 INSERT INTO Payments (booking_id, amount, payment_date, payment_status) VALUES
 -- Completed payments
 (1, 200.00, '2024-02-05 15:31:00', 'completed'),
